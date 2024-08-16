@@ -15,15 +15,14 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
         >
-          <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-8xl lg:leading-normal font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
-              Hello, I&apos;m{" "}
+          <h2 className="text-white mb-4 text-3xl sm:text-4xl lg:text-6xl lg:leading-normal font-extrabold">
+            <span className="text-5xl sm:text-6xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
+              Hello, I&apos;m Omar{" "}
             </span>
             <br></br>
+            
             <TypeAnimation
               sequence={[
-                "Omar",
-                1000,
                 "Software Engineer",
                 1000,
                 "Android Developer",
@@ -35,7 +34,8 @@ const HeroSection = () => {
               speed={50}
               repeat={Infinity}
             />
-          </h1>
+            
+          </h2>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -45,7 +45,7 @@ const HeroSection = () => {
         >
           <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[300] lg:h-[250px] relative">
             <Image
-              src="./images/hero-image.png"
+              src="/images/hero-image.png"
               alt="hero image"
               className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               width={300}

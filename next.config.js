@@ -1,8 +1,8 @@
 const nextConfig = {
-    reactStrictMode: true,
+    //reactStrictMode: true,
   
    // Add basePath
-    basePath: '/portfolio',
+    //basePath: '/portfolio',
   
   }
   
