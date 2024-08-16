@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A portfolio responsive website built with Next.js and Tailwind CSS.
+A responsive portfolio built with Next.js and Tailwind CSS.
 
 ## Installation
 
