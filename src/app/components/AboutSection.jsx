@@ -44,7 +44,7 @@ const AboutSection = () => {
     <section className="text-white" id="about">
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-3xl font-bold text-white mb-4">About Me</h2>
+          <h2 className="text-3xl sm:text-2xl lg:text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
           I am a seasoned software engineer with over ten years of
           experience in native mobile app development for both Android and iOS platforms.
