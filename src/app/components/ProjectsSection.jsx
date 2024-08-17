@@ -38,7 +38,7 @@ const projectsData = [
     title: "Bde Bank",
     description: "Mobile banking app",
     image: "./images/projects/5.png",
-    previewUrl: "https://play.google.com/store/apps/details?id=com.setelia.android.bde",
+    previewUrl: "http://www.bdecash.com/",
   },
   {
     id: 6,
