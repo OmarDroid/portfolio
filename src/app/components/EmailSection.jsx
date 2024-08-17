@@ -42,7 +42,7 @@ const EmailSection = () => {
       
         {state.succeeded ? (
           <p className="text-green-500 text-sm mt-2">
-            Email sent successfully!
+            Thank you! Your message has been sent successfully. I'll get back to you shortly.
           </p>
         ) : (
           <form className="flex flex-col" onSubmit={handleSubmit}>
