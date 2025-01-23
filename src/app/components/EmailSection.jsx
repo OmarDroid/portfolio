@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
+import MediumIcon from "../../../public/medium-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
 import { useForm, ValidationError } from '@formspree/react';
@@ -32,6 +33,9 @@ const EmailSection = () => {
           </Link>
           <Link href="https://www.linkedin.com/in/andomaroid/" target="_blank">
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
+          </Link>
+          <Link href="https://omaroid.medium.com/" target="_blank">
+            <Image src={MediumIcon} alt="Medium Icon" />
           </Link>
         </div>
       </div>
