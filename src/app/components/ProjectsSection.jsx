@@ -1,8 +1,6 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React from "react";
 import ProjectCard from "./ProjectCard";
-
-import { motion, useInView } from "framer-motion";
 
 const projectsData = [
   {
@@ -71,24 +69,22 @@ const projectsData = [
 ];
 
 const ProjectsSection = () => {
-  const ref = useRef(null);
-
   return (
-    <section id="projects">
-      <h2 className="text-center text-3xl sm:text-2xl lg:text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
+    <section id="projects" className="py-12 px-6 bg-[#121212]">
+      <h2 className="text-center text-3xl sm:text-4xl font-bold text-white mb-12">
         My Projects
       </h2>
 
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
-        {projectsData.map((project, _index) => (
-         
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projectsData.map((project) => (
+          <li key={project.id}>
             <ProjectCard
-              key={project.id}
               title={project.title}
               description={project.description}
               imgUrl={project.image}
               previewUrl={project.previewUrl}
             />
+          </li>
         ))}
       </ul>
     </section>
