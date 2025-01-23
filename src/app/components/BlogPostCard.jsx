@@ -5,7 +5,7 @@ import Link from "next/link";
 const BlogPostCard = ({ article }) => {
     return (
         <div
-            className="h-52 md:h-72 rounded-xl relative group"
+            className="h-52 md:h-72 mt-4 mb-8 rounded-xl relative group "
             style={{ background: `url(${article.link})`, backgroundSize: "cover", backgroundPositionX: "center" }}
         >
             <Link
