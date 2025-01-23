@@ -16,7 +16,6 @@ const EmailSection = () => {
       id="contact"
       className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
     >
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-800 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
       <div className="">
         <h5 className="text-2xl sm:text-xl lg:text-3xl font-bold text-white my-2">
           Let&apos;s Connect
@@ -39,8 +38,8 @@ const EmailSection = () => {
           </Link>
         </div>
       </div>
+
       <div>
-      
         {state.succeeded ? (
           <p className="text-green-500 text-sm mt-2">
             Thank you! Your message has been sent successfully. I&apos;ll get back to you shortly.
