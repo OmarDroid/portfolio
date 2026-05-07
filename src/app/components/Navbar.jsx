@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
@@ -27,16 +27,70 @@ const navLinks = [
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  // Handle scroll events to determine when the navbar should change
+  useEffect(() => {
+    const handleScroll = () => {
+      // Apply navbar background after scrolling 100px
+      if (window.scrollY > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+
+      // Determine active section for nav highlighting
+      const sections = document.querySelectorAll("section[id]");
+      let current = "";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (window.scrollY >= sectionTop - 200 && window.scrollY < sectionTop + sectionHeight - 200) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    // Add smooth scrolling behavior
+    const handleLinkClick = (e) => {
+      const href = e.target.closest('a')?.getAttribute('href');
+      if (href?.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          // Close the mobile menu if open
+          setNavbarOpen(false);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    document.body.addEventListener('click', handleLinkClick);
+
+    // Initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.removeEventListener('click', handleLinkClick);
+    };
+  }, []);
 
   return (
-    <nav className="fixed mx-auto border border-[#0d0d0d] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
+    <nav className={`fixed mx-auto top-0 left-0 right-0 z-50 ${scrolled ? 'bg-[#121212]/90 backdrop-blur-sm shadow-lg' : 'bg-[#121212]'} transition-all duration-300`}>
       <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
         <Link
           href={"/"}
-          className="text-2xl md:text-5xl text-white font-semibold"
+          className="text-2xl md:text-3xl text-white font-semibold hover:text-primary-400 transition-colors duration-300"
         >
-
-            
+          Omar Hamid
         </Link>
         
         <div className="mobile-menu block md:hidden">
@@ -60,7 +114,11 @@ const Navbar = () => {
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <NavLink href={link.path} title={link.title} />
+                <NavLink 
+                  href={link.path} 
+                  title={link.title} 
+                  active={activeSection === link.path.substring(1)}
+                />
               </li>
             ))}
           </ul>

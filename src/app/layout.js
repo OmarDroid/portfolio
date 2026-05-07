@@ -3,15 +3,31 @@ import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
+// NOTE: openGraph.url and any twitter handle are intentionally omitted until
+// the production URL / handle is known. Re-enable openGraph.url once the site
+// is deployed (e.g. https://omarhamid.dev). Same for the twitter block.
 export const metadata = {
-  title: 'Omar Hamid | Portfolio',
-  description: 'Omar Hamid | Portfolio',
+  title: 'Omar Hamid | Senior Mobile Engineer & Kotlin Specialist',
+  description: 'Portfolio of Omar Hamid, a Senior Mobile Engineer specializing in Kotlin, SwiftUI, and mobile architecture. Over 10 years of experience building high-quality mobile experiences.',
+  keywords: 'Omar Hamid, mobile developer, Kotlin, Android, iOS, Swift, SwiftUI, mobile architecture, Kotlin Multiplatform, KMP',
+  openGraph: {
+    title: 'Omar Hamid | Senior Mobile Engineer & Kotlin Specialist',
+    description: 'Portfolio of Omar Hamid, a Senior Mobile Engineer with expertise in Kotlin and mobile application architecture.',
+    siteName: 'Omar Hamid Portfolio',
+    locale: 'en_US',
+    type: 'website',
+    // images: [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: '...' }],
+  },
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* <link rel="apple-touch-icon" href="/apple-icon.png" /> */}
+      </head>
+      <body className={`${inter.className} w-full overflow-x-hidden`}>{children}</body>
     </html>
   )
 }

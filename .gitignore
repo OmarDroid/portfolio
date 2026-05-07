@@ -19,6 +19,13 @@
 .DS_Store
 *.pem
 
+# IDE / editor settings (do NOT commit — JetBrains stores chat histories etc. in .idea)
+.idea/
+.vscode/
+
+# Local notes
+/text.md
+
 # debug
 npm-debug.log*
 yarn-debug.log*
@@ -34,3 +41,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 src/app/.env
+/Project.md
+/feedback.md
