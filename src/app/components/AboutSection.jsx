@@ -269,15 +269,24 @@ const SkillsCarousel = () => {
                     {category.skills.map((skill, idx) => (
                       <motion.div
                         key={idx}
-                        className="skill-item flex items-center p-2 sm:p-3 rounded-lg bg-slate-700/80 border border-slate-700 backdrop-blur-sm"
+                        className="skill-item flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-slate-700/80 border border-slate-700 backdrop-blur-sm w-full min-w-0 max-w-full overflow-hidden"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.1 + idx * 0.1 }}
                         whileHover={{ y: -3, scale: 1.01 }}
                       >
-                        <span className="text-xl sm:text-2xl mr-2 sm:mr-3 opacity-90 flex-shrink-0">{skill.icon}</span>
-                        <span className="text-slate-100 font-medium text-sm sm:text-base flex-grow truncate">{skill.name}</span>
-                        <span className="text-xs bg-slate-700/30 text-slate-300 py-0.5 sm:py-1 px-1.5 sm:px-2 rounded-full font-medium border border-slate-600/30 ml-1 sm:ml-2 flex-shrink-0">
+                        {/* Icon — never shrinks */}
+                        <span className="text-lg sm:text-2xl opacity-90 flex-shrink-0">{skill.icon}</span>
+
+                        {/* Name — wrapped in a min-w-0 flex-1 box so truncate actually clips */}
+                        <div className="flex-1 min-w-0 overflow-hidden">
+                          <span className="block truncate text-slate-100 font-medium text-sm sm:text-base">
+                            {skill.name}
+                          </span>
+                        </div>
+
+                        {/* Level pill — never shrinks, no wrap */}
+                        <span className="text-[10px] sm:text-xs bg-slate-700/30 text-slate-300 py-0.5 sm:py-1 px-1.5 sm:px-2 rounded-full font-medium border border-slate-600/30 flex-shrink-0 whitespace-nowrap">
                           {skill.level}
                         </span>
                       </motion.div>

@@ -140,9 +140,11 @@ const BlogPosts = () => {
                   viewport={{ once: true }}
                   className="w-full overflow-visible mx-auto"
                 >
-                  <div className="relative">
+                  {/* px-12 on mobile carves out side gutters so the floating
+                      arrows sit OUTSIDE the card area but stay vertically centered. */}
+                  <div className="relative px-12 md:px-0">
                     {/* Custom left navigation arrow */}
-                    <button 
+                    <button
                       className="custom-nav-btn custom-nav-prev"
                       onClick={() => {
                         if (swiperRef.current && swiperRef.current.swiper) {
@@ -155,7 +157,7 @@ const BlogPosts = () => {
                         <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z" clipRule="evenodd" />
                       </svg>
                     </button>
-                    
+
                     <Swiper
                       ref={swiperRef}
                       modules={[Pagination]}

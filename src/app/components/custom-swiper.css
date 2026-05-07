@@ -381,15 +381,26 @@
 }
 
 @media (max-width: 768px) {
-  .custom-nav-prev {
-    left: -50px;
+  /* On mobile the carousel container has px-12 padding, which carves out a
+     gutter on each side. The arrows sit centered in those gutters — outside
+     the tappable card area, so there's no risk of mis-tapping a blog post.
+     They keep their perfectly circular 44×44 shape. */
+  .custom-nav-btn {
     width: 44px;
     height: 44px;
+    flex-shrink: 0;
+    background-color: rgba(15, 23, 42, 0.85);
+    border-color: rgba(59, 130, 246, 0.35);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   }
-  
+  .custom-nav-prev {
+    left: 0;
+  }
   .custom-nav-next {
-    right: -50px;
-    width: 44px;
-    height: 44px;
+    right: 0;
+  }
+  .custom-nav-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
   }
 }
