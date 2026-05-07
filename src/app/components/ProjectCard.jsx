@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { EyeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import withBasePath from "../../utils/withBasePath";
 
 const MAX_TILT = 8; // degrees
 
@@ -44,7 +45,7 @@ const ProjectCard = ({ imgUrl, title, description, previewUrl }) => {
         <div className="absolute inset-0 rounded-xl border-2 border-white/30 group-hover:border-blue-700 group-hover:shadow-2xl group-hover:shadow-blue-900/50 transition-all duration-500 z-10 pointer-events-none"></div>
 
         <img
-          src={imgUrl}
+          src={withBasePath(imgUrl)}
           alt={title}
           loading="lazy"
           className="h-80 md:h-72 w-full rounded-xl object-cover transition-all duration-500 group-hover:brightness-110"

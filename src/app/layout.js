@@ -24,7 +24,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link
+          rel="icon"
+          href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon.ico`}
+          sizes="any"
+        />
         {/* <link rel="apple-touch-icon" href="/apple-icon.png" /> */}
       </head>
       <body className={`${inter.className} w-full overflow-x-hidden`}>{children}</body>

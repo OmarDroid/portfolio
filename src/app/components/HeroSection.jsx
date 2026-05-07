@@ -3,6 +3,9 @@ import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
+import withBasePath from "../../utils/withBasePath";
+
+const HERO_PORTRAIT = withBasePath("/images/hero-image.png");
 
 const typeSequence = [
   "Senior Mobile Engineer",
@@ -43,7 +46,7 @@ const HeroSection = () => {
           <div className="mb-8 flex justify-center items-center w-full md:hidden">
             <div className="hero-portrait-ring hero-portrait-ring--static w-[140px] h-[140px]">
               <Image
-                src="/images/hero-image.png"
+                src={HERO_PORTRAIT}
                 alt="Omar Hamid portrait"
                 width={140}
                 height={140}
@@ -106,7 +109,7 @@ const HeroSection = () => {
         >
           <div className="hero-portrait-ring hero-portrait-ring--static w-[230px] h-[230px]">
             <Image
-              src="/images/hero-image.png"
+              src={HERO_PORTRAIT}
               alt="Omar Hamid portrait"
               width={230}
               height={230}
