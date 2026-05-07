@@ -69,7 +69,7 @@ const EmailSection = () => {
               key="success-message"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-gradient-to-br from-green-900/20 to-green-800/30 p-8 md:p-10 rounded-xl border border-green-500/30 backdrop-blur-sm shadow-lg shadow-green-500/5 transition-all duration-300 overflow-hidden relative"
+              className="bg-gradient-to-br from-green-900/20 to-green-800/30 p-5 sm:p-8 md:p-10 rounded-xl border border-green-500/30 backdrop-blur-sm shadow-lg shadow-green-500/5 transition-all duration-300 overflow-hidden relative"
             >
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-green-500/0 via-green-500/80 to-green-500/0"></div>
               <div className="absolute top-0 right-0 w-24 h-24 bg-green-500/10 blur-2xl rounded-full -mr-8 -mt-8"></div>
@@ -94,7 +94,7 @@ const EmailSection = () => {
               </button>
             </motion.div>
           ) : (
-            <div key="contact-form" className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 p-8 md:p-10 rounded-xl border border-slate-700/40 shadow-lg shadow-primary-500/5 transition-all duration-300 backdrop-blur-sm overflow-hidden relative group hover:border-primary-500/30 hover:shadow-md hover:shadow-primary-500/20">
+            <div key="contact-form" className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 p-5 sm:p-8 md:p-10 rounded-xl border border-slate-700/40 shadow-lg shadow-primary-500/5 transition-all duration-300 backdrop-blur-sm overflow-hidden relative group hover:border-primary-500/30 hover:shadow-md hover:shadow-primary-500/20">
               <div className="absolute top-0 right-0 w-24 h-24 bg-primary-500/10 blur-2xl rounded-full -mr-8 -mt-8 pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary-500/10 blur-2xl rounded-full -ml-8 -mb-8 pointer-events-none"></div>
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-500/0 via-primary-500/0 to-primary-500/0 group-hover:via-primary-500/80 transition-colors duration-300 pointer-events-none"></div>

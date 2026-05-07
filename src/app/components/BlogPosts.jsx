@@ -140,9 +140,9 @@ const BlogPosts = () => {
                   viewport={{ once: true }}
                   className="w-full overflow-visible mx-auto"
                 >
-                  {/* px-12 on mobile carves out side gutters so the floating
-                      arrows sit OUTSIDE the card area but stay vertically centered. */}
-                  <div className="relative px-12 md:px-0">
+                  {/* Just enough side padding to fit a 36px arrow button on mobile —
+                      keeps arrows OUTSIDE the card area but doesn't squeeze the card. */}
+                  <div className="relative px-9 md:px-0">
                     {/* Custom left navigation arrow */}
                     <button
                       className="custom-nav-btn custom-nav-prev"

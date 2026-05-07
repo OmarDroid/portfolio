@@ -269,24 +269,27 @@ const SkillsCarousel = () => {
                     {category.skills.map((skill, idx) => (
                       <motion.div
                         key={idx}
-                        className="skill-item flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-slate-700/80 border border-slate-700 backdrop-blur-sm w-full min-w-0 max-w-full overflow-hidden"
+                        // CSS Grid with minmax(0,1fr) for the middle column is the
+                        // bulletproof truncation pattern — the middle cell can shrink
+                        // below its content's intrinsic width, so `truncate` actually
+                        // clips long skill names without pushing the level pill off.
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "auto minmax(0, 1fr) auto",
+                          alignItems: "center",
+                          columnGap: "0.5rem",
+                        }}
+                        className="skill-item p-2 sm:p-3 rounded-lg bg-slate-700/80 border border-slate-700 backdrop-blur-sm w-full max-w-full overflow-hidden"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.1 + idx * 0.1 }}
                         whileHover={{ y: -3, scale: 1.01 }}
                       >
-                        {/* Icon — never shrinks */}
-                        <span className="text-lg sm:text-2xl opacity-90 flex-shrink-0">{skill.icon}</span>
-
-                        {/* Name — wrapped in a min-w-0 flex-1 box so truncate actually clips */}
-                        <div className="flex-1 min-w-0 overflow-hidden">
-                          <span className="block truncate text-slate-100 font-medium text-sm sm:text-base">
-                            {skill.name}
-                          </span>
-                        </div>
-
-                        {/* Level pill — never shrinks, no wrap */}
-                        <span className="text-[10px] sm:text-xs bg-slate-700/30 text-slate-300 py-0.5 sm:py-1 px-1.5 sm:px-2 rounded-full font-medium border border-slate-600/30 flex-shrink-0 whitespace-nowrap">
+                        <span className="text-lg sm:text-2xl opacity-90">{skill.icon}</span>
+                        <span className="block truncate text-slate-100 font-medium text-sm sm:text-base">
+                          {skill.name}
+                        </span>
+                        <span className="text-[10px] sm:text-xs bg-slate-700/30 text-slate-300 py-0.5 sm:py-1 px-1.5 sm:px-2 rounded-full font-medium border border-slate-600/30 whitespace-nowrap">
                           {skill.level}
                         </span>
                       </motion.div>
