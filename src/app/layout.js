@@ -3,16 +3,15 @@ import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
-// NOTE: openGraph.url and any twitter handle are intentionally omitted until
-// the production URL / handle is known. Re-enable openGraph.url once the site
-// is deployed (e.g. https://omarhamid.dev). Same for the twitter block.
 export const metadata = {
   title: 'Omar Hamid | Senior Mobile Engineer & Kotlin Specialist',
   description: 'Portfolio of Omar Hamid, a Senior Mobile Engineer specializing in Kotlin, SwiftUI, and mobile architecture. Over 10 years of experience building high-quality mobile experiences.',
   keywords: 'Omar Hamid, mobile developer, Kotlin, Android, iOS, Swift, SwiftUI, mobile architecture, Kotlin Multiplatform, KMP',
+  metadataBase: new URL('https://omardroid.github.io'),
   openGraph: {
     title: 'Omar Hamid | Senior Mobile Engineer & Kotlin Specialist',
     description: 'Portfolio of Omar Hamid, a Senior Mobile Engineer with expertise in Kotlin and mobile application architecture.',
+    url: 'https://omardroid.github.io/portfolio',
     siteName: 'Omar Hamid Portfolio',
     locale: 'en_US',
     type: 'website',

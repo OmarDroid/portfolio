@@ -19,45 +19,6 @@ const skillItemVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-const SkillCard = ({ title, icon, skills, delay = 0 }) => (
-  <motion.div
-    variants={cardVariants}
-    initial="hidden"
-    animate="visible"
-    transition={{ duration: 0.5, delay }}
-    className="skill-card-wrapper">
-    <div className="skill-category bg-slate-800/80 p-4 sm:p-6 rounded-xl border border-slate-700 shadow-md transition-all duration-300 h-full w-full mx-auto section-style flex flex-col">
-      <div className="flex items-center mb-3 sm:mb-5">
-        <span className="w-10 h-10 flex items-center justify-center bg-slate-700/40 rounded-lg mr-3 text-white/70">
-          {icon}
-        </span>
-        <h4 className="text-xl font-semibold text-white">{title}</h4>
-      </div>
-      <ul className="space-y-2 sm:space-y-3 flex-grow">
-        {skills.map((skill, idx) => (
-          <motion.li
-            key={idx}
-            variants={skillItemVariants}
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.4, delay: 0.1 + idx * 0.1 }}
-            className="skill-item flex items-center p-2 sm:p-3 rounded-lg bg-slate-700/80 border border-slate-700 backdrop-blur-sm whitespace-normal"
-            whileHover={{ y: -3, scale: 1.01 }}
-          >
-            <span className="text-xl sm:text-2xl mr-2 sm:mr-3 opacity-90 flex-shrink-0">{skill.icon}</span>
-            <div className="flex-grow min-w-0">
-              <span className="text-slate-100 font-medium text-sm sm:text-base block truncate">{skill.name}</span>
-            </div>
-            <span className="text-xs bg-slate-700/30 text-slate-300 py-0.5 sm:py-1 px-1.5 sm:px-2 rounded-full font-medium border border-slate-600/30 ml-1 sm:ml-2 flex-shrink-0">
-              {skill.level}
-            </span>
-          </motion.li>
-        ))}
-      </ul>
-    </div>
-  </motion.div>
-);
-
 const SkillsCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = Object.values(SKILLS_DATA);
